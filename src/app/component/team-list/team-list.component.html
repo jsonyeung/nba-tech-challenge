@@ -1,0 +1,14 @@
+<h2>NBA Teams</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Team Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let team of teams">
+            <td><a routerLink="/details/{{team.id}}">{{team.name}}</a></td>
+        </tr>
+    </tbody>
+</table>
