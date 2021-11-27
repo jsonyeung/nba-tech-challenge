@@ -5,7 +5,7 @@ import { Team, Player } from '../../model/model';
 @Component({
   selector: 'app-player-list',
   templateUrl: './player-list.component.html',
-  styleUrls: ['./player-list.component.css']
+  styleUrls: ['./player-list.component.scss']
 })
 export class PlayerListComponent implements OnInit {
   players: Player[];
