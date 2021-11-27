@@ -8,6 +8,7 @@ import { TopBarComponent } from './component/top-bar/top-bar.component';
 import { TeamListComponent } from './component/team-list/team-list.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { TeamDetailsComponent } from './component/team-details/team-details.component';
+import { PlayerListComponent } from './component/player-list/player-list.component';
 import {ServerMockService} from "./mock/server-mock.service";
 
 @NgModule({
@@ -17,6 +18,7 @@ import {ServerMockService} from "./mock/server-mock.service";
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: TeamListComponent},
+      { path: 'players', component: PlayerListComponent},
       { path: 'details/:teamId', component: TeamDetailsComponent}
     ],{ useHash: true, relativeLinkResolution: 'legacy' })
   ],
@@ -24,7 +26,8 @@ import {ServerMockService} from "./mock/server-mock.service";
     AppComponent,
     TopBarComponent,
     TeamListComponent,
-    TeamDetailsComponent
+    TeamDetailsComponent,
+    PlayerListComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ServerMockService, multi: true }]
