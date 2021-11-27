@@ -9,10 +9,27 @@ import { Team, Player } from '../../model/model';
 })
 export class PlayerListComponent implements OnInit {
   players: Player[];
+  sort = {
+    column: null,
+    reverse: false
+  };
 
   constructor(
     private playerService: PlayerService
   ) { }
+
+  sortPlayerList(column): void {
+    if (this.sort.column === column)
+      this.sort.reverse = !this.sort.reverse
+    else {
+      this.sort.column = column
+      this.sort.reverse = false
+    }
+
+    this.players.sort((a, b) => {
+      return (this.sort.reverse ? -1 : 1) * (a[this.sort.column] - b[this.sort.column])
+    })
+  }
 
   ngOnInit(): void {
     this.playerService.getAllPlayers()
