@@ -1,12 +1,5 @@
-<button (click)="sortPlayerList('weightPounds')">WT</button>
-<button (click)="sortPlayerList('heightInches')">HT</button>
+<div class="container">
+  <h1>NBA Player List</h1>
 
-<div *ngFor="let player of players">
-    <div style='display: flex; gap: 1rem;'>
-        <div>{{ player.firstName }} {{ player.lastName }}</div>
-        <div>{{ player.id }}</div>
-        <div>{{ player.position }}</div>
-        <div>{{ player.heightInches }}"</div>
-        <div>{{ player.weightPounds }}lb</div>
-    </div>
+  <player-table [data]='players'></player-table>
 </div>

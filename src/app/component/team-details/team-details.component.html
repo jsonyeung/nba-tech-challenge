@@ -1,4 +1,15 @@
-<h1>{{ team | json }}</h1>
-<h3>
-   {{players | json}}
-</h3>
+<div class='container'>
+   <div class='team-header'>
+      <div class='team-header-ribbon'>
+        <img src='{{ team.logoUrl }}' width='140' alt='{{ team.name }} logo'/>
+      </div>
+
+      <div>
+         <span class='team-abbrev'>{{ team.abbreviation }}</span>
+         <h1>{{ team.fullName }}</h1>
+         <p style='font-size: 1.5rem'>{{ team.division }}</p>
+      </div> 
+   </div>
+
+   <player-table [data]='players'></player-table>
+</div>

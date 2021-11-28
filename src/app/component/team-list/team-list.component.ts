@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Team } from '../../model/model';
 import { TeamService } from '../../service/team.service';
 @Component({
   selector: 'app-team-list',
   templateUrl: './team-list.component.html',
-  styleUrls: ['./team-list.component.css']
+  styleUrls: ['./team-list.component.scss']
 })
 export class TeamListComponent implements OnInit {
+  sub$: Subscription;
   divisionTeams;
 
   constructor(
@@ -14,11 +16,13 @@ export class TeamListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.teamService.getAllTeams()
+    this.sub$ = this.teamService.getAllTeams()
       .subscribe((teams: Team[]) => {
         this.divisionTeams = this.groupBy(teams, 'division');
     });
   }
+
+  ngOnDestroy(): void { this.sub$.unsubscribe(); }
 
   private groupBy(arr: Array<Object>, key: string): Object {
     return arr.reduce((acc, v) => {
