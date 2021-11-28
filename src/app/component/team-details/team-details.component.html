@@ -11,28 +11,5 @@
       </div> 
    </div>
 
-   <table class='player-table'>
-      <thead class='player-table-header'>
-        <tr>
-          <th>Id</th>
-          <th>Player</th>
-          <th>Wt</th>
-          <th>Ht</th>
-          <th>Pos</th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <tr class='player-item' *ngFor="let player of players">
-          <td>{{ player.id }}</td>
-          <td>
-            <img src='/assets/image/player-placeholder.svg' height='35'/>
-            {{ player.firstName }} {{ player.lastName }}
-          </td>
-          <td>{{ player.weightPounds }}lbs</td>
-          <td>{{ player.heightInches }}"</td>
-          <td>{{ player.position || '–' }}</td>
-        </tr>
-      </tbody>
-    </table>
+   <player-table [data]='players'></player-table>
 </div>
