@@ -1,4 +1,38 @@
-<h1>{{ team | json }}</h1>
-<h3>
-   {{players | json}}
-</h3>
+<div class='container'>
+   <div class='team-header'>
+      <div class='team-header-ribbon'>
+        <img src='{{ team.logoUrl }}' width='140' alt='{{ team.name }} logo'/>
+      </div>
+
+      <div>
+         <span class='team-abbrev'>{{ team.abbreviation }}</span>
+         <h1>{{ team.fullName }}</h1>
+         <p style='font-size: 1.5rem'>{{ team.division }}</p>
+      </div> 
+   </div>
+
+   <table class='player-table'>
+      <thead class='player-table-header'>
+        <tr>
+          <th>Id</th>
+          <th>Player</th>
+          <th>Wt</th>
+          <th>Ht</th>
+          <th>Pos</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr class='player-item' *ngFor="let player of players">
+          <td>{{ player.id }}</td>
+          <td>
+            <img src='/assets/image/player-placeholder.svg' height='35'/>
+            {{ player.firstName }} {{ player.lastName }}
+          </td>
+          <td>{{ player.weightPounds }}lbs</td>
+          <td>{{ player.heightInches }}"</td>
+          <td>{{ player.position || '–' }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
