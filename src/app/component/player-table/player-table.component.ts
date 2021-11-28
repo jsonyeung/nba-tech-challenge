@@ -8,15 +8,20 @@ import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
   styleUrls: ['./player-table.component.scss']
 })
 export class PlayerTableComponent implements OnInit{
-  @Input() data: Player[];
+  @Input() data: Player[] = [];
   columns: Columns[];
   config: Config;
 
   constructor() { }
 
+  ngOnChanges() {
+    if (this.config) this.config.isLoading = false;
+  }
+
   ngOnInit() {
     this.config = { 
       ...DefaultConfig,
+      isLoading: true,
       rows: 25
     };
 

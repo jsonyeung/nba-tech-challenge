@@ -1,3 +1,19 @@
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  margin: 1rem 0;
+
+  background: url('/assets/image/loader.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  animation: loading 1s infinite alternate ease-in-out;
+  @keyframes loading {
+    100% { opacity: 0.5; }
+  }
+}
+
+
 ::ng-deep {
   .ngx-table {
     font-size: 1rem;

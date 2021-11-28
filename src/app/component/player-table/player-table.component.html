@@ -2,5 +2,10 @@
   [data]='data' 
   [columns]='columns' 
   [configuration]='config'
+  [loadingTemplate]='loadingTemplate'
 >
 </ngx-table>
+
+<ng-template #loadingTemplate>
+  <div class='loading-spinner'></div>
+</ng-template>
