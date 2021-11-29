@@ -1,24 +1,13 @@
-<table class='player-table'>
-  <thead class='player-table-header'>
-    <tr>
-      <th>Id</th>
-      <th>Player</th>
-      <th>Wt</th>
-      <th>Ht</th>
-      <th>Pos</th>
-    </tr>
-  </thead>
+<ngx-table 
+  [data]='data' 
+  [columns]='columns' 
+  [configuration]='config'
+  [loadingTemplate]='loadingTemplate'
+>
+</ngx-table>
 
-  <tbody>
-    <tr class='player-item' *ngFor="let player of data">
-      <td>{{ player.id }}</td>
-      <td>
-        <img src='/assets/image/player-placeholder.svg' height='35'/>
-        {{ player.firstName }} {{ player.lastName }}
-      </td>
-      <td>{{ player.weightPounds }}lbs</td>
-      <td>{{ player.heightInches }}"</td>
-      <td>{{ player.position || '–' }}</td>
-    </tr>
-  </tbody>
-</table>
+<ng-template #loadingTemplate>
+  <div style='margin: 3rem 0 1rem 220%;'>
+    <div class='loading-spinner'></div>
+  </div>
+</ng-template>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'ngx-easy-table';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -10,13 +11,15 @@ import { TeamListComponent } from './component/team-list/team-list.component';
 import { TeamDetailsComponent } from './component/team-details/team-details.component';
 import { PlayerListComponent } from './component/player-list/player-list.component';
 import { PlayerTableComponent } from './component/player-table/player-table.component';
-import {ServerMockService} from "./mock/server-mock.service";
+
+import { ServerMockService } from "./mock/server-mock.service";
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TableModule,
     RouterModule.forRoot([
       { path: '', component: TeamListComponent},
       { path: 'players', component: PlayerListComponent},

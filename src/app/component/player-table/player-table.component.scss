@@ -1,33 +1,58 @@
-.player-table {
-  width: 100%;
-}
+.loading-spinner {
+  width: 45px;
+  height: 110px;
+  margin: 1rem 0;
 
-.player-table-header {
-  text-align: left;
-  font-family: var(--font-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  background: url('/assets/image/loader.png');
+  background-size: contain;
+  background-repeat: no-repeat;
   
-  th { 
-    border: 1.5px solid currentColor; 
-    border-left: none;
-    border-right: none;
+  animation: loading 0.6s infinite alternate ease-in-out;
+  @keyframes loading {
+      100% { 
+        transform-origin: center center;
+        transform: rotateY(180deg);
+    }
   }
 }
 
-.player-item {
-  font-family: var(--font-tertiary);
+::ng-deep {
+  .ngx-table {
+    font-size: 1rem;
+    font-family: var(--font-tertiary);
 
-  &:nth-child(even) {
-    background: #f1f1f1;
+    td { border: none !important; }
+
+    tr:nth-child(even) {
+      background: #f6f7f9;
+    }
   }
 
-  td { padding-bottom: 0; }
+  .ngx-table__header {
+    text-align: left;
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: black;
+    
+    border-top: 2px solid currentColor !important; 
+    border-bottom: 1.5px solid currentColor !important; 
+  }
 
-  // player entry
-  td:nth-child(2) { 
-    display: flex; 
-    align-items: center; 
-    gap: 0.6rem;
+  .ngx-pagination-wrapper {
+    margin-top: 1.4rem;
+  }
+
+  .ngx-pagination {
+    display: flex;
+    gap: 0.2rem;
+    font-family: var(--font-secondary);
+
+    li { border: none; }
+
+    li.current {
+      background: black;
+      border-color: black;
+    }
   }
 }
