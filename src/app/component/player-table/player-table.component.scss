@@ -1,18 +1,20 @@
 .loading-spinner {
-  width: 80px;
-  height: 80px;
+  width: 45px;
+  height: 110px;
   margin: 1rem 0;
 
   background: url('/assets/image/loader.png');
   background-size: contain;
   background-repeat: no-repeat;
-
-  animation: loading 1s infinite alternate ease-in-out;
+  
+  animation: loading 0.6s infinite alternate ease-in-out;
   @keyframes loading {
-    100% { opacity: 0.5; }
+      100% { 
+        transform-origin: center center;
+        transform: rotateY(180deg);
+    }
   }
 }
-
 
 ::ng-deep {
   .ngx-table {
