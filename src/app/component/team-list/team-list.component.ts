@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Team } from '../../model/model';
 import { TeamService } from '../../service/team.service';
@@ -7,9 +7,9 @@ import { TeamService } from '../../service/team.service';
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss']
 })
-export class TeamListComponent implements OnInit {
-   divisionTeams;
-   sub: Subscription;
+export class TeamListComponent implements OnInit, OnDestroy {
+  divisionTeams;
+  sub: Subscription;
 
   constructor(
     private teamService: TeamService
@@ -19,7 +19,7 @@ export class TeamListComponent implements OnInit {
     this.sub = this.teamService.getAllTeams()
       .subscribe((teams: Team[]) => {
         this.divisionTeams = this.groupBy(teams, 'division');
-    });
+      });
   }
 
   ngOnDestroy() { this.sub.unsubscribe(); }

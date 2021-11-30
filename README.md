@@ -20,6 +20,8 @@ There are two RESTful mock endpoints available to you:
 
 These mocks are stored in the `app/mock` folder. For this exercise there will be no need to touch this folder.
 
+To lint your code, run `npx ng lint --fix`
+
 ## Challenges:
 
 1. Improve the page to provide the city & division of the teams. 

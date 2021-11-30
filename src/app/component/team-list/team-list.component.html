@@ -2,14 +2,14 @@
   <h1>NBA Team List</h1>
 
   <div class='division-list'>
-      <div class='division' *ngFor="let entry of divisionTeams | keyvalue">
+      <div class='division' *ngFor='let entry of divisionTeams | keyvalue'>
         <!-- Division Title -->
         <h3 class='division-title'>{{ entry.key }}</h3>
     
         <!-- Teams within Division -->
         <div class='team-list'>
 
-          <a *ngFor="let team of entry.value" routerLink="/details/{{team.id}}">
+          <a *ngFor='let team of entry.value' routerLink="/details/{{team.id}}">
             <div class='team-item' title='{{ team.fullName }}'>
               <img class='team-item-logo' src='{{ team.logoUrl }}' alt='{{ team.name }} logo'/>
               {{ team.fullName }}

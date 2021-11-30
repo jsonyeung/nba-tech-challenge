@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Player } from 'src/app/model/model';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 
 @Component({
-  selector: 'player-table',
+  selector: 'app-player-table',
   templateUrl: './player-table.component.html',
   styleUrls: ['./player-table.component.scss']
 })
-export class PlayerTableComponent implements OnInit{
+export class PlayerTableComponent implements OnInit, OnChanges {
   @Input() data: Player[] = [];
   columns: Columns[];
   config: Config;

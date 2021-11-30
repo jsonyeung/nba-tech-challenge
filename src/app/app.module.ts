@@ -12,7 +12,7 @@ import { TeamDetailsComponent } from './component/team-details/team-details.comp
 import { PlayerListComponent } from './component/player-list/player-list.component';
 import { PlayerTableComponent } from './component/player-table/player-table.component';
 
-import { ServerMockService } from "./mock/server-mock.service";
+import { ServerMockService } from './mock/server-mock.service';
 
 @NgModule({
   imports: [
@@ -21,9 +21,9 @@ import { ServerMockService } from "./mock/server-mock.service";
     HttpClientModule,
     TableModule,
     RouterModule.forRoot([
-      { path: '', component: TeamListComponent},
-      { path: 'players', component: PlayerListComponent},
-      { path: 'details/:teamId', component: TeamDetailsComponent}
+      { path: '', component: TeamListComponent },
+      { path: 'players', component: PlayerListComponent },
+      { path: 'details/:teamId', component: TeamDetailsComponent }
     ],{ useHash: true, relativeLinkResolution: 'legacy' })
   ],
   declarations: [
