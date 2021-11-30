@@ -1,5 +1,5 @@
 <div class="container">
   <h1>NBA Player List</h1>
 
-  <player-table [data]='players'></player-table>
+  <player-table [data]='players$ | async'></player-table>
 </div>

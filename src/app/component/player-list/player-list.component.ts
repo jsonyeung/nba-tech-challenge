@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../service/player.service';
 import { Team, Player } from '../../model/model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-all-player-list',
@@ -8,18 +9,13 @@ import { Team, Player } from '../../model/model';
   styleUrls: ['./player-list.component.scss']
 })
 export class PlayerListComponent implements OnInit {
-  players: Player[];
-  sortOn = { column: null, reverse: false };
+  players$: Observable<Player[]>;
 
   constructor(
     private playerService: PlayerService
   ) { }
 
   ngOnInit(): void {
-    this.playerService.getAllPlayers()
-      .subscribe((result) => {
-        this.players = result;
-      }
-    )
+    this.players$ = this.playerService.getAllPlayers();
   }
 }

@@ -8,23 +8,23 @@ import { TeamService } from '../../service/team.service';
   styleUrls: ['./team-list.component.scss']
 })
 export class TeamListComponent implements OnInit {
-  sub$: Subscription;
-  divisionTeams;
+   divisionTeams;
+   sub: Subscription;
 
   constructor(
     private teamService: TeamService
   ) {}
 
   ngOnInit(): void {
-    this.sub$ = this.teamService.getAllTeams()
+    this.sub = this.teamService.getAllTeams()
       .subscribe((teams: Team[]) => {
         this.divisionTeams = this.groupBy(teams, 'division');
     });
   }
 
-  ngOnDestroy(): void { this.sub$.unsubscribe(); }
+  ngOnDestroy() { this.sub.unsubscribe(); }
 
-  private groupBy(arr: Array<Object>, key: string): Object {
+  groupBy(arr: Array<Object>, key: string): Object {
     return arr.reduce((acc, v) => {
       (acc[v[key]] = acc[v[key]] || []).push(v);
       return acc;
